@@ -1,0 +1,73 @@
+﻿
+@model HotelReservationSystem.Models.room
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h4>Create Room</h4>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.bedNo, "Person Number:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.bedNo, new { htmlAttributes = new { @class = "form-control" }, required = "required" })
+                @Html.ValidationMessageFor(model => model.bedNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.price,"Price:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" }, required = "required" })
+                @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.kind,"Kind:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.RadioButtonFor(model => model.kind, "suite", new { htmlAttributes = new { @class = ".radio-inline" } }) Suite
+                    @Html.RadioButtonFor(model => model.kind, "deluxe", new { htmlAttributes = new { @class = ".radio-inline" } }) deluxe
+                    @Html.RadioButtonFor(model => model.kind, "family", new { htmlAttributes = new { @class = ".radio-inline" } }) family
+                    @Html.ValidationMessageFor(model => model.kind, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.r_view,"View:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @Html.RadioButtonFor(model => model.r_view, "ONNile", new { htmlAttributes = new { @class = ".radio-inline" } }) Nile
+                    @Html.RadioButtonFor(model => model.r_view, "NotONNile", new { htmlAttributes = new { @class = ".radio-inline" } }) NotONNile
+
+                    @Html.ValidationMessageFor(model => model.r_view, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Display Rooms", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

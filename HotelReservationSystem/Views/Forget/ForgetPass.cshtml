@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "ForgetPass";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2 style="text-align:center">Reset Your Password</h2>
+
+<br /> <br /> @if (ViewBag.Error != null)
+{<h2> @ViewBag.Error </h2>
+} <center>
+    <form method="post" action="ForgetPass" style="width:350px">
+        <!--<span class="form-control-static"> Receiver: </span>-->
+        <input class="form-control" type="text" name="receiver" placeholder="Type Your Email" required style="float:left;clear:both" />
+        <!--<span class = "form-control-static" > Subject: < /span> <input class = "form-control" type = "text" name = "subject"/> <br/> <span class ="form-control-static">
+            Message: </span> <input class = "form-control" type = "text" name = "message"/>-->
+
+        <input class="btn btn-primary" type="submit" value="Send" style="float:right" />
+    </form>
+</center>

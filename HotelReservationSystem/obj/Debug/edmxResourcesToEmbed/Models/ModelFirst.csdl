@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="lightsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="contact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="subjct" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="msage" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="spam_flag" Type="Int32" />
+  </EntityType>
+  <EntityType Name="room">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="checkInDate" Type="DateTime" Precision="0" />
+    <Property Name="checkOutDate" Type="DateTime" Precision="0" />
+    <Property Name="kind" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="r_view" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="bedNo" Type="Int32" />
+    <Property Name="price" Type="Double" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="typeID" Type="Int32" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Pasword" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="addrss" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="userType" Relationship="Self.FK__users__typeID__70DDC3D8" FromRole="users" ToRole="userType" />
+  </EntityType>
+  <EntityType Name="userType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="typ" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="users" Relationship="Self.FK__users__typeID__70DDC3D8" FromRole="userType" ToRole="users" />
+  </EntityType>
+  <Association Name="FK__users__typeID__70DDC3D8">
+    <End Role="userType" Type="Self.userType" Multiplicity="0..1" />
+    <End Role="users" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="typeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="lightsDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="contacts" EntityType="Self.contact" />
+    <EntitySet Name="rooms" EntityType="Self.room" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <EntitySet Name="userTypes" EntityType="Self.userType" />
+    <AssociationSet Name="FK__users__typeID__70DDC3D8" Association="Self.FK__users__typeID__70DDC3D8">
+      <End Role="userType" EntitySet="userTypes" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

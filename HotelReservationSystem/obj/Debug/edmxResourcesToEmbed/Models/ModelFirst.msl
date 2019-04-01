@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="lightsDBModelStoreContainer" CdmEntityContainer="lightsDBEntities">
+    <EntitySetMapping Name="contacts">
+      <EntityTypeMapping TypeName="lightsDBModel.contact">
+        <MappingFragment StoreEntitySet="contact">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="c_name" ColumnName="c_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="subjct" ColumnName="subjct" />
+          <ScalarProperty Name="msage" ColumnName="msage" />
+          <ScalarProperty Name="spam_flag" ColumnName="spam_flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rooms">
+      <EntityTypeMapping TypeName="lightsDBModel.room">
+        <MappingFragment StoreEntitySet="room">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="checkInDate" ColumnName="checkInDate" />
+          <ScalarProperty Name="checkOutDate" ColumnName="checkOutDate" />
+          <ScalarProperty Name="kind" ColumnName="kind" />
+          <ScalarProperty Name="r_view" ColumnName="r_view" />
+          <ScalarProperty Name="bedNo" ColumnName="bedNo" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="lightsDBModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="typeID" ColumnName="typeID" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="Pasword" ColumnName="Pasword" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="addrss" ColumnName="addrss" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userTypes">
+      <EntityTypeMapping TypeName="lightsDBModel.userType">
+        <MappingFragment StoreEntitySet="userType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="typ" ColumnName="typ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

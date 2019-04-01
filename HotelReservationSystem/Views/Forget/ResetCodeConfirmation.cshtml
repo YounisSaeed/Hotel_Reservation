@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "ResetCodeConfirmation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 style="text-align:center">you've received an email contant <span style="color:cadetblue">confirmation code</span></h3>
+<center>
+    <form method="post" action="ResetCodeConfirmation" style="width:400px">
+        <!--<span class="form-control-static"> Receiver: </span>-->
+        <input class="form-control" type="text" name="code" placeholder="Type The Code" required style="float:left;clear:both" />
+        <!--<span class = "form-control-static" > Subject: < /span> <input class = "form-control" type = "text" name = "subject"/> <br/> <span class ="form-control-static">
+            Message: </span> <input class = "form-control" type = "text" name = "message"/>-->
+
+        <input class="btn btn-primary" type="submit" value="Confirm" style="float:right" />
+    </form>
+</center>
+

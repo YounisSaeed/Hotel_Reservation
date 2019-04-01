@@ -1,0 +1,48 @@
+﻿@model IEnumerable<HotelReservationSystem.Models.contact>
+
+<center><h2>Contact Spam Messages</h2></center><br>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.c_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subjct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.msage)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.c_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subjct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.msage)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.id })
+                </td>*@
+        </tr>
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Back", "Display")
+</div>
